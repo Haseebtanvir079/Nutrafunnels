@@ -16,7 +16,7 @@ function App() {
 
 
   useEffect(() => {
-    // Check for the authentication token in localStorage or sessionStorage
+
     const isLogged = localStorage.getItem('isLoggedIn');
 
     if (isLogged!==null) {
@@ -38,16 +38,11 @@ function App() {
             element={<Signup setUserLogged={setUserLogged} userLogged={userLogged}/>}
           />
           
-          {/* <Route path='/*' element={<Page404/>}/> */}
-
-          {/* Protected routes */}
 
           {userLogged && (
             <>
               <Route path={'/main'} element={<Main setUserLogged={setUserLogged} userLogged={userLogged}/>}/>
-              {/* <Route path={'/account/:useremail'} element={<ArticleIndex userLogged={userLogged} setUserLogged={setUserLogged}/>} />
-              <Route path={'/account/:useremail/createnew'} element={<ArticleAdd />} />
-              <Route path={'/account/:useremail/:id'} element={<ArticleContent />} /> */}
+             
             </>
           )}
         </Routes>
